@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
+import {Button} from '../app.button';
 
-export class Button {
-    Value : String;
-    Id: String;
-    href: String;
-}
 
 @Component({
   selector: 'app-home',
@@ -12,11 +8,7 @@ export class Button {
   styleUrls: ['./home.component.css']
 })
 
-
-export class HomeComponent {
-
-    
-    
+export class HomeComponent {        
     BtnNew: Button = {
         Value: 'Include New Timesheet',
         Id: 'btnNew' ,
@@ -28,5 +20,5 @@ export class HomeComponent {
         Id: 'btnManage' ,
         href : '/manage'       
     };
-
+    
 }

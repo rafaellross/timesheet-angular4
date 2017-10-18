@@ -1,4 +1,27 @@
+<div class="controls">
+    <mat-grid-list cols="3" rowHeight="50px">
+        <mat-grid-tile      
+          [colspan]="3"
+          [rowspan]="1">
+            <button mat-raised-button color="primary" routerLink="{{BtnBack.href}}" routerLinkActive="active">{{BtnBack.Value}}</button>
+        </mat-grid-tile>    
+        <mat-grid-tile      
+          [colspan]="3"
+          [rowspan]="1">    
+        <mat-form-field>
+          <input [(ngModel)]="search" matInput placeholder="Search" value="">
+        </mat-form-field>
+      </mat-grid-tile> 
+        <mat-grid-tile      
+          [colspan]="3"
+          [rowspan]="1">
+            <button mat-raised-button color="accent" routerLink="{{BtnSearch.href}}" routerLinkActive="active" (click)="onSearch(search)">{{BtnSearch.Value}}</button>
+        </mat-grid-tile>    
+        <mat-grid-tile      
+          [colspan]="3"
+          [rowspan]="1">
+            <button mat-raised-button routerLink="{{BtnShowAll.href}}" routerLinkActive="active">{{BtnShowAll.Value}}</button>
+        </mat-grid-tile>    
 
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Favorite food" value="">
-  </mat-form-field>
+    </mat-grid-list>
+</div>

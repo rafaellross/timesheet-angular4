@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-//Import material design
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {Button} from './app.button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -91,7 +91,10 @@ import {
     BrowserModule,
     RoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatInputModule
+    MatButtonModule, MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
