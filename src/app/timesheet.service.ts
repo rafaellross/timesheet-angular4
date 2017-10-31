@@ -1,46 +1,27 @@
-import { Injectable, NgModule } from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-
-// AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http);
-}
-
-@NgModule({
-    imports: [
-        HttpClientModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            }
-        })
-    ]
-})
-
-
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class TimesheetService {
+export class TimeSheetService {
+    constructor(private http: Http) { }
+    search(){
+        return this.http.get('http://localhost/timesheet/list-employees.php')
+            .map((response: Response) => response.json());
+    }
+}
 
-    List: object;
-    
-    // Inject HttpClient into your component or service.
-    constructor(private http: HttpClient) {}  
+    /*
+    search(name: string) {
 
-    search(name: string): object {
         // Make the HTTP request:
-        var result = {};
+        let result = {};
         this.http.get('http://localhost/timesheet/list-employees.php?name=' + name).subscribe(data => {
           // Read the result field from the JSON response.
             result = data['results'];
         });
         return result;
-    }  
-}
-
-
+    }
+    */

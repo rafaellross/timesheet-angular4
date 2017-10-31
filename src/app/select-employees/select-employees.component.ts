@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import {Button} from '../app.button';
-import {TimesheetService} from '../timesheet.service'
+import {TimeSheetService} from '../timesheet.service'
 import 'rxjs/add/operator/map';
 @Component({
   selector: 'app-select-employees',
   templateUrl: './select-employees.component.html',
   styleUrls: ['./select-employees.component.css'],
-  providers: [TimesheetService]
+  providers: [TimeSheetService]
 })
 
 
 export class SelectEmployeesComponent {
-    constructor(private timeSheetService: TimesheetService) {}
+    constructor(private timeSheetService: TimeSheetService) {}
     listEmployee = null
     
     BtnBack: Button = {
@@ -32,7 +32,7 @@ export class SelectEmployeesComponent {
         
     
     onSearch(name : string = "") : void {
-        this.listEmployee = this.timeSheetService.search(name);                 
+        this.listEmployee = this.timeSheetService.search();                 
     }
     
 }
